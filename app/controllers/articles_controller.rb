@@ -10,6 +10,11 @@ Application classes and modules are available everywhere, you do not need and sh
 
 class ArticlesController < ApplicationController
   def index
-    @temp = "abc"
+    @articles = Article.all
   end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+  
 end
