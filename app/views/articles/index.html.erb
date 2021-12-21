@@ -1,3 +1,6 @@
+
+<% 
+=begin %>  
 <h1>Articles</h1>
 
 <ul>
@@ -6,6 +9,22 @@
       <%= article.id %>
       <%= article.title %>
       <%= article.body %>
+    </li>
+  <% end %>
+</ul> 
+
+<% 
+=end %>
+
+
+<h1>Articles</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <a href="/articles/<%= article.id %>">
+        <%= article.title %>
+      </a>
     </li>
   <% end %>
 </ul>
