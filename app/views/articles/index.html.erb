@@ -52,9 +52,13 @@ The values in the "Prefix" column above plus a suffix of _url or _path form the 
 
 <ul>
   <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article %>
-    </li>
+    <% unless article.archived? %>
+      <li>
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
-<%= link_to "New Article", new_article_path  %>
+
+<%= link_to "New Article", new_article_path %>
+

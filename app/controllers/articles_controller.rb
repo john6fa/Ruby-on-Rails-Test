@@ -85,7 +85,7 @@ class ArticlesController < ApplicationController
       # require and permit. 
       # The former is used to mark parameters as required. 
       # The latter is used to set the parameter as permitted and limit which attributes should be allowed for mass updating.
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :status)
     end
 end
 

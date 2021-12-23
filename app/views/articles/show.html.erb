@@ -10,6 +10,14 @@
 </ul>
 
 <h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+
+<% 
+=begin %> 
 <% @article.comments.each do |comment| %>
   <p>
     <strong>Commenter:</strong>
@@ -22,7 +30,7 @@
   </p>
 <% end %>
 
-<h2>Add a comment:</h2>
+
 <%# The :model argument of form_with allows us to bind the form builder object to a model object. 
 This means that the form will be scoped to that model object, and 
 the form's fields will be populated with values from that model object. 
@@ -41,4 +49,7 @@ label, text_field, text_area properties of comment class
   <p>
     <%= form.submit %>
   </p>
-<% end %>
+
+
+<% 
+=end %>
