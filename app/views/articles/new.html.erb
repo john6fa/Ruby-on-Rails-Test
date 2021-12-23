@@ -1,3 +1,6 @@
+<% 
+=begin %>  
+
 <h1>New Article</h1>
 
 <%= form_with model: @article do |form| %>
@@ -20,4 +23,14 @@
   <div>
     <%= form.submit %>
   </div>
-<% end %>
+
+<% 
+=end %>  
+
+
+<h1>New Article</h1>
+<%#
+A partial's filename must be prefixed with an underscore, e.g. _form.html.erb. 
+But when rendering, it is referenced without the underscore, e.g. render "form". 
+%>
+<%= render "form", article: @article %>

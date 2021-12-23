@@ -37,6 +37,11 @@
     </li>
   <% end %>
 </ul>
+
+new_article GET    /articles/new(.:format)      articles#new %>
+Route configuration
+The values in the "Prefix" column above plus a suffix of _url or _path form the names of these helpers.
+
 <% 
 =end %>
 
@@ -52,5 +57,4 @@
     </li>
   <% end %>
 </ul>
-
-<%= link_to "New Article", new_article_path %>
+<%= link_to "New Article", new_article_path  %>

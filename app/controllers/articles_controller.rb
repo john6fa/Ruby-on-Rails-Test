@@ -50,9 +50,26 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      # redirect_to will cause the browser to make a new request
+      # Use redirect_to after mutating the database or application state
       redirect_to @article
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
