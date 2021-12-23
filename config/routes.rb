@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   # get "/articles/:id", to: "articles#show"
 
   root "articles#index"
-  resources :articles
+
+  resources :articles do
+    # creates comments as a nested resource within articles
+    resources :comments
+  end
+
 end

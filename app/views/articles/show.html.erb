@@ -4,22 +4,41 @@
 
 <ul>
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= button_to "Delete", 
-                  article_path(@article),
-                  data: { confirm: "Are you sure?" },
-                  method: :delete %></li> 
-                
+  <li><%= button_to "Destroy", article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></li>
 </ul>
 
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
 
-<% 
-=begin %>  
-  <li><%= link_to "Destroy", article_path(@article),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li> 
-
-
-                    <%= link_to 'Destroy',  @article,  method: :delete, data: { confirm: 'Are you sure?' } %>
-<% 
-=end %>  
+<h2>Add a comment:</h2>
+<%# The :model argument of form_with allows us to bind the form builder object to a model object. 
+This means that the form will be scoped to that model object, and 
+the form's fields will be populated with values from that model object. 
+Form is bound to model - comments model, form is a variable
+label, text_field, text_area properties of comment class 
+%>
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
