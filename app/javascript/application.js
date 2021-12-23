@@ -3,4 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 //= require jquery 
 //= require jquery_ujs
-
+require("@rails/ujs").start()
+//= require jquery
+//= require jquery_ujs
+//= require_tree .

@@ -4,9 +4,13 @@
 
 <ul>
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
-    <%= link_to 'Destroy',  @article,  method: :delete, data: { confirm: 'Are you sure?' } %>
+  <li><%= button_to "Delete", 
+                  article_path(@article),
+                  data: { confirm: "Are you sure?" },
+                  method: :delete %></li> 
                 
 </ul>
+
 
 
 <% 
