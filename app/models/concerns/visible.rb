@@ -18,3 +18,4 @@ module Visible
     end
   end
   
+# Visible module implements all of the status methods that were duplicated in the models.
