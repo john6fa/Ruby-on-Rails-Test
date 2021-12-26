@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  # create article object in memory so you can build form UI
   def new
     @article = Article.new
   end
