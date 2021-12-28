@@ -1,14 +1,26 @@
-# class Test
-#     @@abc = 1
+class Test
+    @@abc = 1
 
-#     def self.update
-#         @@abc = 2
-#     end 
+    def self.update
+        @@abc = 2
+    end 
 
-#     def z 
-#         puts @@abc
-#     end
-# end
+    def z 
+        puts @@abc
+    end
+
+    def interest_rate
+        @@interest_rate = 0.2
+    end
+
+    def calc_interest ( balance )
+        puts balance * interest_rate
+    end
+end
+
+obj = Test.new
+puts obj.calc_interest(100)
+
 
 # $g = 123
 
@@ -27,19 +39,19 @@
 # puts "10".to_f
 # puts "hello".to_f
 
-numbers = [1, 4, 6, 7, 3, 2, 5]
-# numbers
+# numbers = [1, 4, 6, 7, 3, 2, 5]
+# # numbers
 
-def loop(nums)
-    nums.each { |n| print "#{n} " }
-end 
+# def loop(nums)
+#     nums.each { |n| print "#{n} " }
+# end 
 
-puts "Sorted"
-loop(numbers.sort!)
+# puts "Sorted"
+# loop(numbers.sort!)
 
-puts "Reverse"
-loop(numbers.reverse!)
+# puts "Reverse"
+# loop(numbers.reverse!)
 
-loop(numbers)
+# loop(numbers)
 
 
