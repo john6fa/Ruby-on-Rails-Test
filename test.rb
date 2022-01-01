@@ -1,25 +1,25 @@
-class Test
-    @@abc = 1
+# class Test
+#     @@abc = 1
 
-    def self.update
-        @@abc = 2
-    end 
+#     def self.update
+#         @@abc = 2
+#     end 
 
-    def z 
-        puts @@abc
-    end
+#     def z 
+#         puts @@abc
+#     end
 
-    def interest_rate
-        @@interest_rate = 0.2
-    end
+#     def interest_rate
+#         @@interest_rate = 0.2
+#     end
 
-    def calc_interest ( balance )
-        puts balance * interest_rate
-    end
-end
+#     def calc_interest ( balance )
+#         puts balance * interest_rate
+#     end
+# end
 
-obj = Test.new
-puts obj.calc_interest(100)
+# obj = Test.new
+# puts obj.calc_interest(100)
 
 
 # $g = 123
@@ -55,3 +55,23 @@ puts obj.calc_interest(100)
 # loop(numbers)
 
 
+# a = [ 1, 3, 5, 7, 9 ]	
+# a[2, 2] = 'cat', 'o', 'q', 'r'
+
+# puts a
+
+def fibUpTo(max)
+    i1, i2 = 1, 1        # parallel assignment
+    while i1 <= max
+        yield i1
+        i1, i2 = i2, i1+i2
+    end
+end
+
+def into(anArray)
+    return proc { |val| anArray << val }
+end
+
+fibUpTo(20, &into(a = []))
+
+puts a.inspect
