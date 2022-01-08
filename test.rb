@@ -60,18 +60,28 @@
 
 # puts a
 
-def fibUpTo(max)
-    i1, i2 = 1, 1        # parallel assignment
-    while i1 <= max
-        yield i1
-        i1, i2 = i2, i1+i2
-    end
+# def fibUpTo(max)
+#     i1, i2 = 1, 1        # parallel assignment
+#     while i1 <= max
+#         if block_given?
+#             yield i1
+#         end
+#         i1, i2 = i2, i1+i2
+#     end
+# end
+
+# def into(anArray)
+#     return proc { |val| anArray << val }
+# end
+
+# puts fibUpTo(20)
+
+
+pipe = IO.popen("-","w+")
+if pipe
+  pipe.puts "Get a job!"
+  $stderr.puts "Child says '#{pipe.gets.chomp}'"
+else
+  $stderr.puts "Dad says '#{gets.chomp}'"
+  puts "OK"
 end
-
-def into(anArray)
-    return proc { |val| anArray << val }
-end
-
-fibUpTo(20, &into(a = []))
-
-puts a.inspect
