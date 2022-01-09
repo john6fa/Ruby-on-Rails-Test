@@ -77,11 +77,22 @@
 # puts fibUpTo(20)
 
 
-pipe = IO.popen("-","w+")
-if pipe
-  pipe.puts "Get a job!"
-  $stderr.puts "Child says '#{pipe.gets.chomp}'"
-else
-  $stderr.puts "Dad says '#{gets.chomp}'"
-  puts "OK"
+# pipe = IO.popen("-","w+")
+# if pipe
+#   pipe.puts "Get a job!"
+#   $stderr.puts "Child says '#{pipe.gets.chomp}'"
+# else
+#   $stderr.puts "Dad says '#{gets.chomp}'"
+#   puts "OK"
+# end
+
+str = "hello"
+fork do
+    puts "In child, pid = #$$"
+    puts str
+    exit 99
 end
+
+pid = Process.wait
+puts "Child terminated, pid = #{pid}, exit code = #{$? >> 8}"
+puts "Parent pid = #$$"
